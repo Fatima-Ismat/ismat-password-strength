@@ -6,10 +6,10 @@ st.set_page_config(page_title="Password Strength Checker by Ismat Fatima", page_
 #custom css
 st.markdown("""
 <style>
-     .main {text-align: center}
-     .stTextInput {width: 60% !important; margin: auto; }
-     .stButton button {width: 50%; background-color #4CAF50; color: white; font-size: 18px}
-     .stButton button:hover { background-color: #45a049; }
+     .main {text-align: center; }
+     .stTextInput { width: 60% !important; margin: auto; }
+     .stButton button { width: 50%; background-color: green; color: white; font-size: 18px; }
+     .stButton button:hover { background-color: red; color: white;}
 </style>
 """, unsafe_allow_html=True)
 
@@ -26,7 +26,7 @@ def check_password_strength(password):
           score += 1 #increase score by 1
      else:
           feedback.append("❌ Password should be  **atleast 8 character long**.")
-     if re.serch(r"[A-Z]", password) and re.search(r"[]"):    
+     if re.search(r"[A-Z]", password) and re.search(r"[a-z]", password):  
           score += 1
      else:
           feedback.append("❌ **Both uppercase (A-Z) and lowercase (a-z) letters**.")
